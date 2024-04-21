@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Override jQuery Mobile button styles */
+        .recipe-link.ui-btn {
+            display:grid;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1 class="ui-btn">Recipes</h1>
+    </div>
+    <div role="main" class="ui-content">
+        <h2>Select a Recipe:</h2>
+        <a class="ui-btn" href="pasta-carbonara.html" data-role="button" data-inline="false">Pasta Carbonara</a>
+        <a class="ui-btn" href="chicken-stir-fry.html" data-role="button" data-inline="false">Chicken Stir Fry</a>
+        <a class="ui-btn" href="vegetable-pizza.html" data-role="button" data-inline="false">Vegetable Pizza</a>
+
+    </div>
+    <div data-role="content">
+        <p>Swipe left, right, up, or down on the box below:</p>
+        <div id="swipe-box" data-role="content" style="width: 200px; height: 200px; background-color: lightblue; text-align: center;">
+          Swipe me!
+        </div>
+    <script>
+        // Swipe box event handlers
+        $('#swipe-box').on('swiperight', function () {
+            alert('Swiped right!');
+            $('#swipe-box').css('background-color', 'lightgreen');
+        });
+
+        $('#swipe-box').on('swipeleft', function () {
+            alert('Swiped left!');
+            $('#swipe-box').css('background-color', 'lightcoral');
+        });
+
+        $('#swipe-box').on('swipeup', function () {
+            alert('Swiped up!');
+            $('#swipe-box').css('background-color', 'lightyellow');
+        });
+
+        $('#swipe-box').on('swipedown', function () {
+            alert('Swiped down!');
+            $('#swipe-box').css('background-color', 'lightpink');
+        });
+
+        // Button click event handlers
+        $('#changeColorLeft').on('click', function () {
+            $('#swipe-box').css('background-color', 'lightcoral');
+        });
+
+        $('#changeColorRight').on('click', function () {
+            $('#swipe-box').css('background-color', 'lightgreen');
+        });
+
+        // Department click event handlers
+        $('#showCS').on('click', function () {
+            showDepartmentInfo('Computer Science Department', 'CS department information goes here.');
+        });
+
+        $('#showIT').on('click', function () {
+            showDepartmentInfo('Information Technology Department', 'IT department information goes here.');
+        });
+
+        $('#showENTC').on('click', function () {
+            showDepartmentInfo('Electronics and Telecommunication Department', 'ENTC department information goes here.');
+        });
+
+        $('#showECE').on('click', function () {
+            showDepartmentInfo('Electronics and Communication Department', 'ECE department information goes here.');
+        });
+
+        $('#showAI').on('click', function () {
+            showDepartmentInfo('Artificial Intelligence Department', 'AI department information goes here.');
+        });
+
+        // Function to display department information
+        function showDepartmentInfo(title, content) {
+            $('#departmentInfo').html('<h3>' + title + '</h3><p>' + content + '</p>');
+        }
+    </script>
+    
+</div>
+</body>
+</html>
